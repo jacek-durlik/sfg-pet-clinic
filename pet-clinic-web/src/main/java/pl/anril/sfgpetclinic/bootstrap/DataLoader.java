@@ -1,26 +1,18 @@
 package pl.anril.sfgpetclinic.bootstrap;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.anril.sfgpetclinic.model.Owner;
 import pl.anril.sfgpetclinic.model.Vet;
 import pl.anril.sfgpetclinic.services.OwnerService;
-import pl.anril.sfgpetclinic.services.PetService;
 import pl.anril.sfgpetclinic.services.VetService;
-import pl.anril.sfgpetclinic.services.map.OwnerServiceMap;
-import pl.anril.sfgpetclinic.services.map.VetServiceMap;
-
-import java.util.Vector;
 
 @Component
+@RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
-
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
-    }
 
     @Override
     public void run(String... args) throws Exception {
