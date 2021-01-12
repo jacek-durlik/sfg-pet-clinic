@@ -4,8 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.anril.sfgpetclinic.model.Owner;
+import pl.anril.sfgpetclinic.model.PetType;
 import pl.anril.sfgpetclinic.model.Vet;
 import pl.anril.sfgpetclinic.services.OwnerService;
+import pl.anril.sfgpetclinic.services.PetTypeService;
 import pl.anril.sfgpetclinic.services.VetService;
 
 @Component
@@ -13,6 +15,7 @@ import pl.anril.sfgpetclinic.services.VetService;
 public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -39,5 +42,18 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Loaded vets .........");
+
+        PetType petType1 = new PetType();
+        petType1.setName("Dog");
+        PetType savedPetType1 = petTypeService.save(petType1);
+
+        PetType petType2 = new PetType();
+        petType1.setName("Cat");
+        PetType savedPetType2 = petTypeService.save(petType2);
+
+
+
+        System.out.println("Loaded pet types .........");
+
     }
 }
