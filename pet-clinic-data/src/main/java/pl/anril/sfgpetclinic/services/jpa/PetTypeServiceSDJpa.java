@@ -4,11 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import pl.anril.sfgpetclinic.model.PetType;
-import pl.anril.sfgpetclinic.model.Vet;
 import pl.anril.sfgpetclinic.repositories.PetTypeRepository;
-import pl.anril.sfgpetclinic.repositories.VetRepository;
 import pl.anril.sfgpetclinic.services.PetTypeService;
-import pl.anril.sfgpetclinic.services.VetService;
 
 import java.util.HashSet;
 import java.util.Set;
