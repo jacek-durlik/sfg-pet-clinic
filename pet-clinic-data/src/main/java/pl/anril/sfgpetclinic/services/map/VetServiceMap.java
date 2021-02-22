@@ -1,6 +1,7 @@
 package pl.anril.sfgpetclinic.services.map;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import pl.anril.sfgpetclinic.model.Specialty;
 import pl.anril.sfgpetclinic.model.Vet;
@@ -10,6 +11,7 @@ import pl.anril.sfgpetclinic.services.VetService;
 import java.util.Objects;
 
 @Service
+@Profile({"default", "map"})
 @RequiredArgsConstructor
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     private final SpecialtyService specialtyService;
