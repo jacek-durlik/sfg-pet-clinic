@@ -1,12 +1,17 @@
 package pl.anril.sfgpetclinic.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@SuperBuilder
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "vets")
 public class Vet extends Person {

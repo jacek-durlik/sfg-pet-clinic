@@ -1,14 +1,16 @@
 package pl.anril.sfgpetclinic.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@SuperBuilder(toBuilder = true)
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "owners")
 public class Owner extends Person {
     @Column(name = "address")
