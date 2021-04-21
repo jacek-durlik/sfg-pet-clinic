@@ -11,6 +11,7 @@ import java.util.Set;
 @Data
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "owners")
 public class Owner extends Person {
     @Column(name = "address")
