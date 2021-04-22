@@ -1,9 +1,6 @@
 package pl.anril.sfgpetclinic.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
@@ -14,6 +11,7 @@ import javax.persistence.MappedSuperclass;
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
+@EqualsAndHashCode(callSuper = true)
 public class Person extends BaseEntity {
     @Column(name = "first_name")
     private String firstName;
