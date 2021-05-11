@@ -11,6 +11,8 @@ import pl.anril.sfgpetclinic.services.PetTypeService;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @Profile({"default", "map"})
@@ -24,6 +26,13 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         return map.entrySet().stream()
                 .filter(e -> e.getValue().getLastName().equals(lastName))
                 .map(Map.Entry::getValue).findFirst().orElse(null);
+    }
+
+    @Override
+    public Set<Owner> findAllByLastName(String lastName) {
+        return map.entrySet().stream()
+                .filter(e -> e.getValue().getLastName().equals(lastName))
+                .map(Map.Entry::getValue).collect(Collectors.toSet());
     }
 
     @Override
