@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -42,20 +43,20 @@ class OwnerControllerTest {
 
     @Test
     void listOwners() throws Exception {
-        when(ownerService.findAll()).thenReturn(owners);
+        when(ownerService.findAllByLastName(any())).thenReturn(owners);
         mockMvc.perform(get("/owners"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("owners/index"))
-                .andExpect(model().attribute("owners", hasSize(2)));
+                .andExpect(view().name("owners/ownersList"))
+                .andExpect(model().attribute("selections", hasSize(2)));
     }
 
     @Test
     void listOwnersByIndex() throws Exception {
-        when(ownerService.findAll()).thenReturn(owners);
+        when(ownerService.findAllByLastName(any())).thenReturn(owners);
         mockMvc.perform(get("/owners/index"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("owners/index"))
-                .andExpect(model().attribute("owners", hasSize(2)));
+                .andExpect(view().name("owners/ownersList"))
+                .andExpect(model().attribute("selections", hasSize(2)));
     }
 
     @Test
