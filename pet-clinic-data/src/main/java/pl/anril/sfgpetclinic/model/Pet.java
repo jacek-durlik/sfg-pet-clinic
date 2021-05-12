@@ -1,6 +1,7 @@
 package pl.anril.sfgpetclinic.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -23,5 +24,6 @@ public class Pet extends BaseEntity {
     private Owner owner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    @EqualsAndHashCode.Exclude
     private Set<Visit> visits = new HashSet<>();
 }
