@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @SuperBuilder(toBuilder = true)
@@ -23,4 +24,8 @@ public class Owner extends Person {
     @EqualsAndHashCode.Exclude
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
+
+    public boolean isNew() {
+        return Objects.isNull(this.getId());
+    }
 }
